@@ -1,0 +1,65 @@
+@import "normalize.css";
+/*
+: root -> 获取根元素html
+在这个位置定义了变量
+ */
+:root {
+  /*这一段是css 定义变量的方式*/
+  --color-text: #666;  /*文字颜色*/
+  --color-high-text: #ff5777; /*文字高亮的时候*/
+  --color-tint: #ff8198; /*tint-color 表示整体背景颜色  之后用于设置导航之类的地方设置背景颜色*/
+  --color-background: #fff; /*背景*/
+  --font-siez: 14px; /*整体字体大小14*/
+  --line-height: 1.5 /*行高*/
+  /*
+  加入 定义一个变量 --size:50px  然后再要用的地方  font-size: var(--size)  这样来使用
+  */
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  /*添加margin padding 的时候不改变布局*/
+}
+/*
+在body 这里统一设置字体
+*/
+body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  user-select: none; /*禁止用户鼠标在页面上选中文字/图片/等*/
+  -webkit-tap-highlight-color: transparent; /*webkit是苹果浏览器引擎,tap点击,highlight背景高亮,color文字颜色,颜色用数值调节*/
+  background: var(--color-background);
+  color: var(--color-text);
+  /* rem vw/vh */
+  width: 100vw;
+}
+
+
+a {
+  color: var(--color-text);  /*设置a标签样色*/
+  text-decoration: none; /*a标签的下划线*/
+}
+
+/*这个应该自己写的清楚浮动的放肆  用的是伪类写的隔墙法*/
+.clear-fix::after {
+  clear: both; /*首先先清除浮动*/
+  content: ''; /*设置内容为空*/
+  display: block; /*设置为块级元素 单独会占用一行*/
+  width: 0;
+  height: 0;
+  visibility: hidden; /*超出部分隐藏*/
+}
+
+.clear-fix {
+  zoom: 1; /*兼容性处理  zoom:1;是为了兼容IE6，也可以用height:1%;的方式来解决*/
+}
+
+.left {
+  float: left; /*左浮动*/
+}
+
+.right {
+  float: right; /*右浮动*/
+}
